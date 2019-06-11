@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+#test {
+  content: 10 + " " + 20;
+  content: 30 + " " + 40; }
+
+#example1 {
+  font-size: 20px;
+  letter-spacing: 20px;
+  letter-spacing: 40px; }
+  @media (min-width: 375px) {
+    #example1 {
+      font-size: calc(20px + 20 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
+    #example1 {
+      font-size: 40px; } }
+  @media (min-width: 300px) {
+    #example1 {
+      letter-spacing: calc(20px + 20 * (100vw - 300px) / 200); } }
+  @media (min-width: 500px) {
+    #example1 {
+      letter-spacing: 40px; } }
+  @media (min-width: 500px) {
+    #example1 {
+      letter-spacing: calc(40px + 10 * (100vw - 500px) / 200); } }
+  @media (min-width: 700px) {
+    #example1 {
+      letter-spacing: 50px; } }
+
+#example2 {
+  letter-spacing: 20px;
+  letter-spacing: 40px; }
+  @media (min-width: 375px) {
+    #example2 {
+      letter-spacing: calc(20px + 20 * (100vw - 375px) / 125); } }
+  @media (min-width: 500px) {
+    #example2 {
+      letter-spacing: 40px; } }
+  @media (min-width: 500px) {
+    #example2 {
+      letter-spacing: calc(40px + 10 * (100vw - 500px) / 780); } }
+  @media (min-width: 1280px) {
+    #example2 {
+      letter-spacing: 50px; } }

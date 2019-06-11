@@ -1,0 +1,32 @@
+@import "./responsively.scss";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+#test {
+    $test: (10, 20, 30, 40);
+    $i:1;
+    @while $i <= length($test) {
+        @if $i + 1 > length($test) {
+            content: #{nth($test, $i - 1)} + " " + #{nth($test, $i)};
+        } @else {
+            content: #{nth($test, $i)} + " " + #{nth($test, $i+1)};
+        }
+        $i: $i + 2;
+    }
+}
+#example1 {
+    @include responsively(20px 40px, font-size);
+    @include responsively('20px@300px' '40px@500px' '50px@700px', letter-spacing);
+}
+#example2 {
+    @include responsively(20px '40px@500px' 50px, letter-spacing);
+}
+#example3 {
+    //@include responsively(20px 40px 60px 80px, font-size);
+}
+
+#example4 {
+    //@include responsively(1rem 2rem, letter-spacing);
+}

@@ -1,0 +1,23 @@
+{
+  "name": "responsively",
+  "version": "1.0.0",
+  "description": "Better fluid responsive scss",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run serve & npm run watch-scss",
+    "build-scss": "node-sass --include-path scss src/test.scss test/test.css",
+    "watch-scss": "nodemon -e scss -x \"npm run build-scss\"",
+    "serve": "node ./serve.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tspringborg/responsively.git"
+  },
+  "devDependencies": {
+    "node-sass": "^4.8.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
