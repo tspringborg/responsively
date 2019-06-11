@@ -19,17 +19,17 @@ body {
       font-size: 50px; } }
 
 #example2 {
-  margin: 22px;
-  margin: 24px; }
+  margin: 22rem;
+  margin: 24rem; }
   @media (min-width: 576px) {
     #example2 {
-      margin: calc(22px + 2 * (100vw - 576px) / 192); } }
+      margin: calc(22rem + 2 * (100vw - 576px) / 192); } }
   @media (min-width: 768px) {
     #example2 {
-      margin: 24px; } }
+      margin: 24rem; } }
   @media (min-width: 768px) {
     #example2 {
-      margin: calc(24px + 10 * (100vw - 768px) / 224); } }
+      margin: calc(24rem + 10 * (100vw - 768px) / 224); } }
   @media (min-width: 992px) {
     #example2 {
-      margin: 34px; } }
+      margin: 34rem; } }

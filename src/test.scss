@@ -12,7 +12,11 @@ body {
     //@include responsively('20px@300px' '40px@500px' '50px@700px', padding-left padding-right);
 }
 #example2 {
-    $map: (576px: 22px, 768px: 24px, 992px: 34px);
+    $map: (
+        576px: 22rem,
+        768px: 24rem,
+        992px: 34rem
+    );
     @include responsively($map, margin);
     
     //@include responsively(20px '40px@500px' 50px, letter-spacing);
