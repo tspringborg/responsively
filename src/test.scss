@@ -46,5 +46,12 @@ $big: $responsively-max-width;
 }
 #example5 {
     background-color: cyan;
-    @include responsively(100vw 50vw, width height);
+    width: calc(50vw + 50 * (100vw - 320px) / 580);
+    height: calc(50vw + 50 * (100vw - 320px) / 580);
+    font-size: calc((100vw - 320px) / 580);
+    @media screen and (min-width: #{$big}) {
+        width: 100vw;
+        height: 100vw;
+    }
+    //@include responsively(50vw 100vw, width height);
 }

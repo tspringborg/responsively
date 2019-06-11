@@ -44,13 +44,10 @@ body {
 
 #example5 {
   background-color: cyan;
-  width: 100vw;
-  height: 100vw; }
-  @media (min-width: 320px) {
+  width: calc(50vw + 50 * (100vw - 320px) / 580);
+  height: calc(50vw + 50 * (100vw - 320px) / 580);
+  font-size: calc((100vw - 320px) / 580); }
+  @media screen and (min-width: 900px) {
     #example5 {
-      width: calc(100vw + -50 * (100vw - 320px) / 580);
-      height: calc(100vw + -50 * (100vw - 320px) / 580); } }
-  @media (min-width: 900px) {
-    #example5 {
-      width: 50vw;
-      height: 50vw; } }
+      width: 100vw;
+      height: 100vw; } }
