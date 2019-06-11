@@ -108,11 +108,12 @@ $responsively-max-width: 1280px !default;
 
 
 @mixin responsively($values, $properties) {
+    // default syntax
     $i: 1;
     @while $i <= length($values) {
         $min-vw: $responsively-min-width;
         $max-vw: $responsively-max-width;
-
+        
         $initial: $i;
         $end: $i + 1;
         // might need to use previous end value as initial value
@@ -122,32 +123,41 @@ $responsively-max-width: 1280px !default;
         }
         $initial-value: nth($values, $initial);
         $end-value: nth($values, $end);
-
-        @if (type-of($initial-value) == "string") {
-            // So it is a string does it have a "@" symbol to break apart
-            @if (str-index($initial-value, "@")) {
-                // split string helper
-                $initial-value-list: split-str($initial-value, "@");
-                // unquote the split and cast the string to a number
-                // http://hugogiraudel.com/2014/01/15/sass-string-to-number/
-                $initial-value: to-number(unquote(nth($initial-value-list, 1)));
-                $min-vw: to-number(unquote(nth($initial-value-list, 2)));
+        
+        @if type-of($initial-value) == 'list' {
+            // using the list syntax. like ($size: $value, $size: $value2, etc... )
+            $min-vw: nth($initial-value, 1);
+            $max-vw: nth($end-value, 1);
+            $initial-value: nth($initial-value, 2);
+            $end-value: nth($end-value, 2);
+        } @else {
+            // using the default shorthand syntax
+            @if (type-of($initial-value) == "string") {
+                // So it is a string does it have a "@" symbol to break apart
+                @if (str-index($initial-value, "@")) {
+                    // split string helper
+                    $initial-value-list: split-str($initial-value, "@");
+                    // unquote the split and cast the string to a number
+                    // http://hugogiraudel.com/2014/01/15/sass-string-to-number/
+                    $initial-value: to-number(unquote(nth($initial-value-list, 1)));
+                    $min-vw: to-number(unquote(nth($initial-value-list, 2)));
+                }
             }
-        }
-
-        @if (type-of($end-value) == "string") {
-            // So it is a string does it have a "@" symbol to break apart
-            @if (str-index($end-value, "@")) {
-                // split string helper
-                $end-value-list: split-str($end-value, "@");
-                // unquote the split and cast the string to a number
-                // http://hugogiraudel.com/2014/01/15/sass-string-to-number/
-                $end-value: to-number(unquote(nth($end-value-list, 1)));
-                $max-vw: to-number(unquote(nth($end-value-list, 2)));
+            
+            @if (type-of($end-value) == "string") {
+                // So it is a string does it have a "@" symbol to break apart
+                @if (str-index($end-value, "@")) {
+                    // split string helper
+                    $end-value-list: split-str($end-value, "@");
+                    // unquote the split and cast the string to a number
+                    // http://hugogiraudel.com/2014/01/15/sass-string-to-number/
+                    $end-value: to-number(unquote(nth($end-value-list, 1)));
+                    $max-vw: to-number(unquote(nth($end-value-list, 2)));
+                }
             }
         }
         @include _r($min-vw, $max-vw, $initial-value, $end-value, $properties);
-
+        
         $i: $i + 2
     }
 }
