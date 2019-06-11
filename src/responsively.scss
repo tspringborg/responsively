@@ -1,8 +1,20 @@
 // GENERAL SETTINGS
 $responsively-min-width: 375px !default;
 $responsively-max-width: 1280px !default;
+$responsively-rem-context: 16px !default;
 
 // UTILITY FUNCTIONS //
+
+@function rem($target, $context: $responsively-rem-context) {
+    @return strip-unit($target / $context) * 1rem;
+}
+  
+@function em($target, $context: 16, $unitless: false) {
+    $unit: if($unitless, 1, 1em);
+    @return strip-unit($target / $context) * $unit;
+}
+
+
 @function to-number($value) {
     @if type-of($value) == "number" {
         @return $value;
@@ -92,10 +104,15 @@ $responsively-max-width: 1280px !default;
     @each $property in $properties {
         #{$property}: $min-value;
     }
-  
+
+    $max-minus-min-value: strip-unit($max-value - $min-value);
+    @if (unit($min-value) == "rem" and unit($max-value) == "rem") {
+        $max-minus-min-value: strip-unit($max-minus-min-value * $responsively-rem-context);
+    }
+
     @media (min-width: $min-vw) {
         @each $property in $properties {
-            #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+            #{$property}: calc(#{$min-value} + #{$max-minus-min-value} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
         }
     }
   

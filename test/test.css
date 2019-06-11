@@ -3,33 +3,54 @@ body {
   padding: 0; }
 
 #example1 {
-  font-size: 20px;
-  font-size: 30px; }
-  @media (min-width: 300px) {
+  font-size: 31px; }
+  @media (min-width: 320px) {
     #example1 {
-      font-size: calc(20px + 20 * (100vw - 300px) / 600); } }
+      font-size: calc(31px + 20 * (100vw - 320px) / 580); } }
   @media (min-width: 900px) {
     #example1 {
-      font-size: 40px; } }
-  @media (min-width: 300px) {
-    #example1 {
-      font-size: calc(30px + 20 * (100vw - 300px) / 600); } }
-  @media (min-width: 900px) {
-    #example1 {
-      font-size: 50px; } }
+      font-size: 51px; } }
 
 #example2 {
-  margin: 22rem;
-  margin: 24rem; }
-  @media (min-width: 576px) {
+  font-size: 1.1rem; }
+  @media (min-width: 320px) {
     #example2 {
-      margin: calc(22rem + 2 * (100vw - 576px) / 192); } }
-  @media (min-width: 768px) {
+      font-size: calc(1.1rem + 64 * (100vw - 320px) / 580); } }
+  @media (min-width: 900px) {
     #example2 {
-      margin: 24rem; } }
-  @media (min-width: 768px) {
+      font-size: 5.1rem; } }
+  @media (min-width: 1000px) {
     #example2 {
-      margin: calc(24rem + 10 * (100vw - 768px) / 224); } }
-  @media (min-width: 992px) {
-    #example2 {
-      margin: 34rem; } }
+      font-size: 5.1rem; } }
+
+#example3 {
+  font-size: 11px; }
+  @media (min-width: 320px) {
+    #example3 {
+      font-size: calc(11px + 40 * (100vw - 320px) / 580); } }
+  @media (min-width: 900px) {
+    #example3 {
+      font-size: 51px; } }
+  @media (min-width: 1000px) {
+    #example3 {
+      font-size: 51px; } }
+
+#example4 {
+  font-size: 1.1rem;
+  font-size: calc(1.1rem + 64 * (100vw - 320px) / 580); }
+  @media screen and (min-width: 900px) {
+    #example4 {
+      font-size: 5.1rem; } }
+
+#example5 {
+  background-color: cyan;
+  width: 100vw;
+  height: 100vw; }
+  @media (min-width: 320px) {
+    #example5 {
+      width: calc(100vw + -50 * (100vw - 320px) / 580);
+      height: calc(100vw + -50 * (100vw - 320px) / 580); } }
+  @media (min-width: 900px) {
+    #example5 {
+      width: 50vw;
+      height: 50vw; } }

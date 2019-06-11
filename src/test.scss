@@ -1,5 +1,5 @@
 @import "./responsively.scss";
-$responsively-min-width: 300px;
+$responsively-min-width: 320px;
 $responsively-max-width: 900px;
 
 body {
@@ -8,23 +8,43 @@ body {
 }
 
 #example1 {
-    @include responsively(20px 40px 30px 50px, font-size);
+    @include responsively(31px 51px, font-size);
     //@include responsively('20px@300px' '40px@500px' '50px@700px', padding-left padding-right);
 }
+$small: $responsively-min-width;
+$big: $responsively-max-width;
+
 #example2 {
     $map: (
-        576px: 22rem,
-        768px: 24rem,
-        992px: 34rem
+        $small: 1.1rem,
+        $big: 5.1rem,
     );
-    @include responsively($map, margin);
-    
+    @include responsively($map, font-size);
+    @media (min-width: 1000px) {
+        font-size: 5.1rem;
+    }
     //@include responsively(20px '40px@500px' 50px, letter-spacing);
 }
 #example3 {
-    //@include responsively(20px 40px 60px 80px, font-size);
+    $map: (
+        $small: 11px,
+        $big: 51px,
+    );
+    @include responsively($map, font-size);
+    @media (min-width: 1000px) {
+        font-size: 51px;
+    }
 }
 
 #example4 {
     //@include responsively(1rem 2rem, letter-spacing);
+    font-size: 1.1rem;
+    font-size: calc(1.1rem + 64 * (100vw - 320px) / 580);
+    @media screen and (min-width: #{$big}) {
+        font-size: 5.1rem;
+    }
+}
+#example5 {
+    background-color: cyan;
+    @include responsively(100vw 50vw, width height);
 }
