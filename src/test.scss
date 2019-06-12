@@ -4,7 +4,29 @@ $responsively-max-width: 900px;
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 10px;
+    position:relative;
+}
+section {
+    @include responsively(margin-bottom, 20px 60px);
+}
+#github {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+#nav {
+    position: fixed;
+    left: 0;
+}
+#content {
+    padding-left: 200px;
+}
+#content, #nav {
+    padding-top: 30px;
+}
+h1 {
+    //@include responsively(font-size, 30px 70px);
 }
 
 #example1 {

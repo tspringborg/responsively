@@ -1,6 +1,31 @@
 body {
   margin: 0;
-  padding: 0; }
+  padding: 10px;
+  position: relative; }
+
+section {
+  margin-bottom: 20px; }
+  @media (min-width: 320px) {
+    section {
+      margin-bottom: calc(20px + 40 * (100vw - 320px) / 580); } }
+  @media (min-width: 900px) {
+    section {
+      margin-bottom: 60px; } }
+
+#github {
+  position: fixed;
+  top: 0;
+  right: 0; }
+
+#nav {
+  position: fixed;
+  left: 0; }
+
+#content {
+  padding-left: 200px; }
+
+#content, #nav {
+  padding-top: 30px; }
 
 #example1 {
   font-size: 31px; }

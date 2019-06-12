@@ -6,23 +6,98 @@
   <title></title>
   <meta name="author" content="">
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="test.css" rel="stylesheet">
+  <link href="prism.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="example5"></div>
-    <div id="example4">Example4: Hardcoded rem values</div>
-  <h1>Better fluid responsive scss with responsively</h1>
-  <h2>Usage:</h2>
-  <pre>@include responsively($values, $properties)</pre>
-  <h4>Example:</h4>
-  <pre>@include responsively(20px 40px, font-size)</pre>
-  <div id="example1">I'm text that fluidly scales font-size between 20px and 40px</div>
+    <a id="github" href="https://github.com/tspringborg/responsively"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+        <ul id="nav" class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#features">Features</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#getting-started">Getting started</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#how-to-use">How to use</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#thanks">Thanks</a>
+            </li>
+        </ul>
+    <div data-spy="scroll" data-target="#nav" data-offset="0" id="content">
+      <section>
+        <h1 class="display-1">Responsively</h1>
+        <p>A modern approach to fluid responsive css with the help of SASS</p>
+        <p>Because breakpoints are so 2015 🤷‍</p>
+      </section>
+      <section>
+        <h3 id="features">Features</h3>
+        <div> 📏 Interpolate values of (almost)any css property in relation to viewport width.</div>
+        <div> 🔥 Flexible and simple syntax.</div>
+        <div> ⚙️ Easy configuration.</div>
+        <div> 🤟🏼 Customize interpolation with n properties and values.</div>
+      </section>
+      <section >
+        <h3 id="getting-started">Getting started</h3>
+        <p>Well, first of you to actually have <a href="https://sass-lang.com/">SASS</a> in your project</p>
+        <p>Then grab the file from github <a href="https://raw.githubusercontent.com/tspringborg/responsively/master/src/responsively.scss">responsively.scss</a></p>
+        <p>Import the file in your sass(note i'm using the scss syntax)</p>
+        <pre><code class="language-scss">@import "./responsively.scss";</code></pre>
+        <p>Congratulations, you rule. Now you are ready to layout responsively.</p>
+        <section id="how-to-use">
+          <h3>How to use</h3>
+          <pre><code class="language-scss">@import "./responsively.scss";
 
-  <div id="example2">Example2: Text that fluidly scales with rem</div>
-  <div id="example3">Example3: Text that fluidly scales with px</div>
+//If you need to overwrite responsively defaults globally.
+$responsively-min-width: 320px; // default is 375px
+$responsively-max-width: 900px; // default is 1280px
+$responsively-rem-context: 12px; // default is 16px and probably you don't need to change this
+
+// using it
+.my-responsive-class{ 
+    // $properties: [list] The css properties you want to target.
+    // $values: [list] The values you want to interpolate between.
+    @include responsively($properties, $values);
+}</code></pre>
+          <p>A commen usecase is to scale font-size</p>
+          <pre><code class="language-scss">body{
+  // font-size now scales between 12px and 17px
+  @include responsively(font-size, 12px 17px);
+}</code></pre>
+          <p>You can target multiple css properties with the same rule</p>
+          <pre><code class="language-scss">body{
+  @include responsively(padding-left padding-right, 10px 25px);
+}</code></pre>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        </section>
+        <p>Responsively interpolates between a minimum window width and a maximum window width. Defaults are 375px and 1280px but if those doesn't work </p>
+
+        <pre><code class="language-css">p { color: red }</code></pre>
+        
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+      </section>
+      <section id="thanks">
+        <h2 class="display-4">Thank you!</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+      </section>
+    </div>
+  <script src="./prism.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
