@@ -80,6 +80,7 @@ $responsively-rem-context: 16px !default;
 
     @if not index(map-keys($units), $unit) {
         $_: log("Invalid unit `#{$unit}`.");
+        @return $_;
     }
 
     @return $value * map-get($units, $unit);
@@ -124,7 +125,7 @@ $responsively-rem-context: 16px !default;
 }
 
 
-@mixin responsively($values, $properties) {
+@mixin responsively($properties, $values) {
     // default syntax
     $i: 1;
     @while $i <= length($values) {

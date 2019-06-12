@@ -44,9 +44,17 @@ body {
 
 #example5 {
   background-color: cyan;
-  width: calc(50vw + 50 * (100vw - 320px) / 580);
-  height: calc(50vw + 50 * (100vw - 320px) / 580);
+  width: 50vw;
+  height: 50vw;
   font-size: calc((100vw - 320px) / 580); }
+  @media (min-width: 320px) {
+    #example5 {
+      width: calc(50vw + 50 * (100vw - 320px) / 580);
+      height: calc(50vw + 50 * (100vw - 320px) / 580); } }
+  @media (min-width: 900px) {
+    #example5 {
+      width: 100vw;
+      height: 100vw; } }
   @media screen and (min-width: 900px) {
     #example5 {
       width: 100vw;

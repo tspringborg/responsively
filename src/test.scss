@@ -8,7 +8,7 @@ body {
 }
 
 #example1 {
-    @include responsively(31px 51px, font-size);
+    @include responsively(font-size, 31px 51px);
     //@include responsively('20px@300px' '40px@500px' '50px@700px', padding-left padding-right);
 }
 $small: $responsively-min-width;
@@ -19,18 +19,20 @@ $big: $responsively-max-width;
         $small: 1.1rem,
         $big: 5.1rem,
     );
-    @include responsively($map, font-size);
+    @include responsively(font-size, $map);
     @media (min-width: 1000px) {
         font-size: 5.1rem;
     }
     //@include responsively(20px '40px@500px' 50px, letter-spacing);
 }
 #example3 {
-    $map: (
-        $small: 11px,
-        $big: 51px,
+    @include responsively(
+        font-size,
+        (
+            $small: 11px,
+            $big: 51px,
+        )
     );
-    @include responsively($map, font-size);
     @media (min-width: 1000px) {
         font-size: 51px;
     }
@@ -46,8 +48,7 @@ $big: $responsively-max-width;
 }
 #example5 {
     background-color: cyan;
-    width: calc(50vw + 50 * (100vw - 320px) / 580);
-    height: calc(50vw + 50 * (100vw - 320px) / 580);
+    @include responsively(width height, 50vw 100vw);
     font-size: calc((100vw - 320px) / 580);
     @media screen and (min-width: #{$big}) {
         width: 100vw;
