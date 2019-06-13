@@ -14,42 +14,56 @@
 
 <body>
     <a id="github" href="https://github.com/tspringborg/responsively"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-        <ul id="nav" class="nav nav-pills flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="#features">Features</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#getting-started">Getting started</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#how-to-use">How to use</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#thanks">Thanks</a>
-            </li>
-        </ul>
-    <div data-spy="scroll" data-target="#nav" data-offset="0" id="content">
-      <section>
-        <h1 class="display-1">Responsively</h1>
+    <div id="nav" class="list-group">
+      <a class="list-group-item list-group-item-action" href="#features">Features</a>
+      <a class="list-group-item list-group-item-action" href="#how-it-works">How it works</a>
+      <a class="list-group-item list-group-item-action" href="#usage">Usage</a>
+      <a class="list-group-item list-group-item-action" href="#thanks">Thanks</a>
+    </div>
+    <div id="content-wrapper" data-spy="scroll" data-target="#nav">
+    
+
+      <div id="content">
+        <h1 class="display-1">Responsively</h1><br/>
         <p>A modern approach to fluid responsive css with the help of SASS</p>
         <p>Because breakpoints are so 2015 🤷‍</p>
-      </section>
-      <section>
-        <h3 id="features">Features</h3>
+      <section id="features">
+        <h3>Features</h3>
         <div> 📏 Interpolate values of (almost)any css property in relation to viewport width.</div>
         <div> 🔥 Flexible and simple syntax.</div>
         <div> ⚙️ Easy configuration.</div>
         <div> 🤟🏼 Customize interpolation with n properties and values.</div>
       </section>
-      <section >
-        <h3 id="getting-started">Getting started</h3>
-        <p>Well, first of you to actually have <a href="https://sass-lang.com/">SASS</a> in your project</p>
-        <p>Then grab the file from github <a href="https://raw.githubusercontent.com/tspringborg/responsively/master/src/responsively.scss">responsively.scss</a></p>
-        <p>Import the file in your sass(note i'm using the scss syntax)</p>
+      <section id="how-it-works">
+          <h3>How it works</h3>
+          <p>Viewport units in css is a nice way to make things responsive</p>
+          <p>A basic approach is to set a property to a viewport unit</p>
+          <pre><code class="language-scss">//padding will now always be 10% of viewport width
+padding: 10vw;</code></pre>
+          <p>Extending on this basic approach, <b>responsively</b> uses the css calc function to interpolate values between a min-width and a max-width</p>
+          <pre><code class="language-scss">$value1: 50px;
+$value2: 100px;
+$min-width: 500px;
+$max-width: 1000px;
+padding: calc($value1 + ($value2 - $value1) * (100vw - $min-width) / ($max-width - $min-width));
+// Compiled css:
+// padding: calc(50px + 50 * (100vw - 500px) / 500);</code></pre>
+<p>The result is that padding will be:</p>
+<p>Fixed at 50px when the browser window is <=500px wide.<br/>
+...and...<br/>
+Fixed at 100px when the browser window is >=1000px wide.<br/>
+<p>While everything between these two sizes is interpolated.<br/>
+Ex. 75px padding at 750px width<br/>
+</p>
+</p>
+        </section>
+      <section id="usage">
+        <h3>Usage</h3>
+        <p>Well, first of you have to actually have <a href="https://sass-lang.com/">SASS</a> in your project</p>
+        <p>Grab the latest <a href="https://raw.githubusercontent.com/tspringborg/responsively/master/src/responsively.scss">responsively</a> from github</p>
+        <p>Import the file (note i'm using the scss syntax)</p>
         <pre><code class="language-scss">@import "./responsively.scss";</code></pre>
         <p>Congratulations, you rule. Now you are ready to layout responsively.</p>
-        <section id="how-to-use">
-          <h3>How to use</h3>
           <pre><code class="language-scss">@import "./responsively.scss";
 
 //If you need to overwrite responsively defaults globally.
@@ -94,6 +108,7 @@ $responsively-rem-context: 12px; // default is 16px and probably you don't need 
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
       </section>
     </div>
+  </div>
   <script src="./prism.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

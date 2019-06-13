@@ -1,47 +1,93 @@
 body {
   margin: 0;
-  padding: 10px;
-  position: relative; }
+  position: relative;
+  font-size: 0.5rem;
+  max-width: 100vw;
+  word-break: break-word; }
+  @media (min-width: 375px) {
+    body {
+      font-size: calc(0.5rem + 11.2 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
+    body {
+      font-size: 1.2rem; } }
 
 section {
-  margin-bottom: 20px; }
-  @media (min-width: 320px) {
+  margin-bottom: 20px;
+  padding-top: 15px; }
+  @media (min-width: 375px) {
     section {
-      margin-bottom: calc(20px + 40 * (100vw - 320px) / 580); } }
-  @media (min-width: 900px) {
+      margin-bottom: calc(20px + 40 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
     section {
       margin-bottom: 60px; } }
+  @media (min-width: 375px) {
+    section {
+      padding-top: calc(15px + 9 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
+    section {
+      padding-top: 24px; } }
 
 #github {
   position: fixed;
   top: 0;
-  right: 0; }
+  right: 0;
+  z-index: 100; }
 
 #nav {
+  display: none;
+  padding: 10px;
   position: fixed;
-  left: 0; }
+  left: 0;
+  z-index: 99; }
+  @media only screen and (min-width: 450px) {
+    #nav {
+      display: block; } }
+
+.display-1 {
+  font-size: 40px; }
+  @media (min-width: 375px) {
+    .display-1 {
+      font-size: calc(40px + 80 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
+    .display-1 {
+      font-size: 120px; } }
+
+#content-wrapper {
+  position: relative;
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: 12px; }
+  @media (min-width: 375px) {
+    #content-wrapper {
+      padding: calc(12px + 28 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
+    #content-wrapper {
+      padding: 40px; } }
 
 #content {
-  padding-left: 200px; }
+  overflow: hidden; }
+  @media only screen and (min-width: 450px) {
+    #content {
+      padding-left: 200px; } }
 
-#content, #nav {
+#nav {
   padding-top: 30px; }
 
 #example1 {
   font-size: 31px; }
-  @media (min-width: 320px) {
+  @media (min-width: 375px) {
     #example1 {
-      font-size: calc(31px + 20 * (100vw - 320px) / 580); } }
-  @media (min-width: 900px) {
+      font-size: calc(31px + 20 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
     #example1 {
       font-size: 51px; } }
 
 #example2 {
   font-size: 1.1rem; }
-  @media (min-width: 320px) {
+  @media (min-width: 375px) {
     #example2 {
-      font-size: calc(1.1rem + 64 * (100vw - 320px) / 580); } }
-  @media (min-width: 900px) {
+      font-size: calc(1.1rem + 64 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
     #example2 {
       font-size: 5.1rem; } }
   @media (min-width: 1000px) {
@@ -50,10 +96,10 @@ section {
 
 #example3 {
   font-size: 11px; }
-  @media (min-width: 320px) {
+  @media (min-width: 375px) {
     #example3 {
-      font-size: calc(11px + 40 * (100vw - 320px) / 580); } }
-  @media (min-width: 900px) {
+      font-size: calc(11px + 40 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
     #example3 {
       font-size: 51px; } }
   @media (min-width: 1000px) {
@@ -63,7 +109,7 @@ section {
 #example4 {
   font-size: 1.1rem;
   font-size: calc(1.1rem + 64 * (100vw - 320px) / 580); }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1280px) {
     #example4 {
       font-size: 5.1rem; } }
 
@@ -72,15 +118,15 @@ section {
   width: 50vw;
   height: 50vw;
   font-size: calc((100vw - 320px) / 580); }
-  @media (min-width: 320px) {
+  @media (min-width: 375px) {
     #example5 {
-      width: calc(50vw + 50 * (100vw - 320px) / 580);
-      height: calc(50vw + 50 * (100vw - 320px) / 580); } }
-  @media (min-width: 900px) {
+      width: calc(50vw + 50 * (100vw - 375px) / 905);
+      height: calc(50vw + 50 * (100vw - 375px) / 905); } }
+  @media (min-width: 1280px) {
     #example5 {
       width: 100vw;
       height: 100vw; } }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1280px) {
     #example5 {
       width: 100vw;
       height: 100vw; } }
