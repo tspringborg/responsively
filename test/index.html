@@ -32,7 +32,7 @@
         <div> 📏 Interpolate values of (almost)any css property in relation to viewport width.</div>
         <div> 🔥 Flexible and simple syntax.</div>
         <div> ⚙️ Easy configuration.</div>
-        <div> 🤟🏼 Customize interpolation with n properties and values.</div>
+        <div> 🤟🏼 Customize interpolation with <em>n</em> properties and values.</div>
       </section>
       <section id="how-it-works">
           <h3>How it works</h3>
@@ -63,7 +63,7 @@ Fixed at 100px when the browser window is >=1000px wide.<br/>
         <p>Grab the latest <a href="https://raw.githubusercontent.com/tspringborg/responsively/master/src/responsively.scss">responsively</a> from github</p>
         <p>Import the file (note i'm using the scss syntax)</p>
         <pre><code class="language-scss">@import "./responsively.scss";</code></pre>
-        <p>Congratulations, you rule. Now you are ready to layout responsively.</p>
+        <p>Congratulations, you rule.<br/>Now you are ready to layout responsively.</p>
           <pre><code class="language-scss">@import "./responsively.scss";
 
 //If you need to overwrite responsively defaults globally.
@@ -85,27 +85,48 @@ $responsively-rem-context: 12px; // default is 16px and probably you don't need 
           <p>You can target multiple css properties with the same rule</p>
           <pre><code class="language-scss">body{
   @include responsively(padding-left padding-right, 10px 25px);
-}</code></pre>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        </section>
-        <p>Responsively interpolates between a minimum window width and a maximum window width. Defaults are 375px and 1280px but if those doesn't work </p>
+}</code></pre><br>
 
-        <pre><code class="language-css">p { color: red }</code></pre>
-        
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-      </section>
+          <p>Set values for a specific browser width</p>
+          <p>Either with shorthand syntax</p>
+          <pre><code class="language-scss">body{
+  @include responsively(padding-left padding-right, '10px@400px' '25px@800px');
+}</code></pre><br>
+          <p>Or use alternate, but a little more verbose syntax</p>
+          <pre><code class="language-scss">body{
+  @include responsively(
+    padding-left padding-right,
+    (
+      400px: 10px,
+      800px: 25px
+    )
+  );
+}</code></pre><br/>
+          <p>You are not limited to interpolation between only 2 values.<br/>
+          Infact, you can add as many values as you like. Just make sure that the middle ones have a width defined.</p>
+<pre><code class="language-scss">body{
+    @include responsively(
+      padding-left padding-right,
+      10px '15px@400px' '20px@500px' 40px
+    );
+}</code></pre><br>
+        <p>You can use any unit value you want. Although things tend to get weird. So probably a good idea to stick with rem and px</p>
+        <pre><code class="language-scss">body{
+  @include responsively(font-size, 0.8rem 1.4rem);
+}</code></pre><br>
+        </section>
       <section id="thanks">
         <h2 class="display-4">Thank you!</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quos dolores perspiciatis, cupiditate at ab! Ullam consequuntur ipsam doloremque qui culpa debitis dicta cumque beatae explicabo libero quasi, modi necessitatibus?</p>
+        <p>I can't take credit for writing this. Most of this mixin is built on top of other things.</p>
+        <p>Mostly I just made up a syntax i like, cleaned up some stuff and fixed some errors.</p>
+        <p>Here's the real mvps:</p>
+        <p>
+          <a href="http://www.sassmeister.com/gist/7f22e44ace49b5124eec">http://www.sassmeister.com/gist/7f22e44ace49b5124eec</a><br/>
+          <a href="https://codepen.io/stowball/pen/JWoWWz?editors=0100">https://codepen.io/stowball/pen/JWoWWz?editors=0100</a><br/>
+          <a href="https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/">https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/</a>
+        </p>
+        <p>Thanks for putting your code out there. You guys are the best.</p>
+        <p>Thanks for reading! I hope you can make use of this.</p>
       </section>
     </div>
   </div>
